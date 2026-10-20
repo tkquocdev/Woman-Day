@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#160616">
+  <meta name="description" content="Khu vườn hoa lung linh dành riêng cho Masha Diêngg nhân ngày 20/10.">
+  <title>For Masha Diêngg — Happy 20/10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+</head>
+<body class="not-loaded">
+  <main class="celebration">
+    <div class="sky" aria-hidden="true">
+      <div class="sky__glow"></div>
+      <div class="bokeh bokeh--one"></div>
+      <div class="bokeh bokeh--two"></div>
+      <div class="bokeh bokeh--three"></div>
+      <div class="stars" id="stars"></div>
+      <div class="fireflies" id="fireflies"></div>
+      <div class="falling-petals" id="falling-petals"></div>
+    </div>
+    <div class="heart-intro" id="heart-intro" aria-hidden="true"></div>
+
+    <header class="greeting">
+      <span class="greeting__eyebrow">GỬI ĐẾN BẠN · 20 THÁNG 10</span>
+      <h1>Happy Vietnamese<br class="greeting__break"> Women's Day<span class="greeting__heart" aria-hidden="true">♡</span></h1>
+      <div class="date-mark" aria-label="Ngày 20 tháng 10">
+        <span>20</span><i aria-hidden="true">/</i><span>10</span>
+      </div>
+      <p class="greeting__message">Yếu mà hay ra gió quá à hihi</p>
+      <div class="dedication">
+        <div class="dedication__copy">
+          <span class="dedication__ornament" aria-hidden="true">❀</span>
+          <p class="dedication__name">Masha Diêngg</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="garden" aria-label="Khu vườn hoa hồng lung linh">
+      <div class="garden__moonlight" aria-hidden="true"></div>
+      <div class="garden__portrait" id="garden-portrait" role="img" aria-label="Ảnh của Masha Diêngg được ghép thành hình trái tim"></div>
+      <div class="fairy-lights" id="fairy-lights" aria-hidden="true"></div>
+      <div class="garden__plants" id="garden-plants" aria-hidden="true"></div>
+      <div class="garden__flowers" id="garden-flowers" aria-hidden="true"></div>
+      <div class="garden__ground" aria-hidden="true"></div>
+      <div class="garden__reflection" aria-hidden="true"></div>
+    </section>
+
+    <button class="wish-button" id="wish-button" type="button">
+      Gửi một điều ước <span aria-hidden="true">✦</span>
+    </button>
+    <button class="music-button is-muted" id="music-button" type="button" aria-label="Bật nhạc" title="Phát hoặc tạm dừng nhạc">
+      <span class="music-button__note" aria-hidden="true">♫</span>
+      <span class="music-button__label">Nhạc</span>
+    </button>
+    <!-- Audio attribution (not displayed): "Heartwarming" by Kevin MacLeod, incompetech.com, CC BY 3.0. Source: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100207. Converted from MP3 to WAV for local playback. -->
+    <audio id="garden-music" src="assets/heartwarming.mp3" type="audio/mpeg" loop preload="auto" aria-label="Heartwarming, bản piano của Kevin MacLeod"></audio>
+    <span class="visually-hidden" id="music-status" role="status" aria-live="polite"></span>
+    <p class="wish-message" id="wish-message" role="status" aria-live="polite"></p>
+    <div class="touch-effects" id="touch-effects" aria-hidden="true"></div>
+    <div class="orientation-overlay" role="status" aria-live="polite">
+      <span class="orientation-overlay__icon" aria-hidden="true">↻</span>
+      <p class="orientation-overlay__title">Một chút nữa thôi…</p>
+      <p class="orientation-overlay__message">Khu vườn này đẹp nhất khi xem theo chiều dọc.<br>Hãy xoay điện thoại đứng lại nhé!</p>
+      <span class="orientation-overlay__phone" aria-hidden="true">▯</span>
+    </div>
+  </main>
+</body>
+</html>
