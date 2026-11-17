@@ -127,8 +127,6 @@ function s1() {
   hintTxt.textContent = CFG.PIN_HINT;
   let pinVal='', wrong=0, locked=false;
 
-  document.getElementById('c1')?.addEventListener('touchstart',startMusic,{once:true,passive:true});
-
   function updateBoxes(val) {
     for(let i=0;i<6;i++){
       const b=document.getElementById('pb'+i);
