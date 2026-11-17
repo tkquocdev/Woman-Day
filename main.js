@@ -2,11 +2,17 @@
 // Thông tin thật đặt trong config.secret.js (đã gitignore)
 const CFG = {
   PIN: "100407",
-  PIN_HINT: "",
-  TEN: "",
-  CAU_HOI: "",
-  LOI_NHAN: [],
-  LOI_CUOI: "",
+  PIN_HINT: "Sinh nhật mặt trời nhỏ 💕",
+  TEN: "Em yêu",
+  CAU_HOI: "Em có đồng ý làm người yêu anh IT không dạ bé Duyên mặt trời nhỏ hihi 🥰",
+  LOI_NHAN: [
+    "Anh thích em không phải vì vẻ ngoài...",
+    "Mà vì cái cách em cười khi ngại ngùng 🌸",
+    "Vì em luôn ở đó khi anh cần 💫",
+    "Và vì em... là em 🥰"
+  ],
+  LOI_CUOI: "Anh yêu em ♡",
+  NGAY_BAT_DAU: "2024-02-14",
   EMAILJS_SERVICE_ID:  "YOUR_SERVICE_ID",
   EMAILJS_TEMPLATE_ID: "YOUR_TEMPLATE_ID",
   EMAILJS_PUBLIC_KEY:  "YOUR_PUBLIC_KEY",
