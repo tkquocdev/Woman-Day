@@ -8,8 +8,8 @@
 }
 
 /* ==================== RESET & BASE ==================== */
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; user-select:none; }
-html, body { width:100%; height:100%; overflow:hidden; background:var(--bg); font-family:'Nunito','Segoe UI',system-ui,sans-serif; color:#fff; }
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; user-select:none; touch-action:manipulation; }
+html, body { width:100%; height:100%; overflow:hidden; touch-action:none; background:var(--bg); font-family:'Nunito','Segoe UI',system-ui,sans-serif; color:#fff; }
 
 /* Overlay xoay ngang */
 .landscape-overlay {
