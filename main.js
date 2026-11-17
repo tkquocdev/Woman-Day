@@ -1,7 +1,7 @@
 // ===================== CẤU HÌNH MẶC ĐỊNH =====================
 // Thông tin thật đặt trong config.secret.js (đã gitignore)
 const CFG = {
-  PIN: "000000",
+  PIN: "100407",
   PIN_HINT: "",
   TEN: "",
   CAU_HOI: "",
