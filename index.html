@@ -1,73 +1,170 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#160616">
-  <meta name="description" content="Khu vườn hoa lung linh dành riêng cho Masha Diêngg nhân ngày 20/10.">
-  <title>For Masha Diêngg — Happy 20/10</title>
+  <meta name="theme-color" content="#0d0015">
+  <title>Dành Cho Em 💕</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
 </head>
-<body class="not-loaded">
-  <main class="celebration">
-    <div class="sky" aria-hidden="true">
-      <div class="sky__glow"></div>
-      <div class="bokeh bokeh--one"></div>
-      <div class="bokeh bokeh--two"></div>
-      <div class="bokeh bokeh--three"></div>
-      <div class="stars" id="stars"></div>
-      <div class="fireflies" id="fireflies"></div>
-      <div class="falling-petals" id="falling-petals"></div>
-    </div>
-    <div class="heart-intro" id="heart-intro" aria-hidden="true"></div>
+<body>
 
-    <header class="greeting">
-      <span class="greeting__eyebrow">GỬI ĐẾN BẠN · 20 THÁNG 10</span>
-      <h1>Happy Vietnamese<br class="greeting__break"> Women's Day<span class="greeting__heart" aria-hidden="true">♡</span></h1>
-      <div class="date-mark" aria-label="Ngày 20 tháng 10">
-        <span>20</span><i aria-hidden="true">/</i><span>10</span>
+<!-- Overlay xoay ngang -->
+<div class="landscape-overlay">
+  <div class="landscape-icon">📱</div>
+  <p>Vui lòng xoay dọc điện thoại để xem nhé 🌸</p>
+</div>
+
+<div id="app">
+
+  <!-- S0: Mở đầu -->
+  <div class="screen active" id="s0">
+    <canvas id="c0"></canvas>
+  </div>
+
+  <!-- S1: PIN -->
+  <div class="screen" id="s1">
+    <canvas id="c1"></canvas>
+    <div class="pin-ui">
+      <p class="pin-title">Chìa khóa trái tim em 🗝️</p>
+      <!-- <p class="pin-sub">Nhập 6 chữ số bí mật của em nha</p> -->
+      <div class="pin-boxes" id="pin-boxes">
+        <div class="pin-box" id="pb0"></div>
+        <div class="pin-box" id="pb1"></div>
+        <div class="pin-box" id="pb2"></div>
+        <div class="pin-box" id="pb3"></div>
+        <div class="pin-box" id="pb4"></div>
+        <div class="pin-box" id="pb5"></div>
       </div>
-      <p class="greeting__message">Yếu mà hay ra gió quá à hihi</p>
-      <div class="dedication">
-        <div class="dedication__copy">
-          <span class="dedication__ornament" aria-hidden="true">❀</span>
-          <p class="dedication__name">Masha Diêngg</p>
+      <input type="tel" inputmode="numeric" maxlength="6" id="pin-hidden" autocomplete="off">
+      <p class="pin-err" id="pin-err">Chưa đúng rồi, thử lại nhé 💕</p>
+      <p class="pin-hint-btn" id="pin-hint-btn">Gợi ý?</p>
+      <p class="pin-hint-txt" id="pin-hint-txt"></p>
+      <div class="keypad" id="keypad">
+        <button class="key" data-val="1">1</button>
+        <button class="key" data-val="2">2</button>
+        <button class="key" data-val="3">3</button>
+        <button class="key" data-val="4">4</button>
+        <button class="key" data-val="5">5</button>
+        <button class="key" data-val="6">6</button>
+        <button class="key" data-val="7">7</button>
+        <button class="key" data-val="8">8</button>
+        <button class="key" data-val="9">9</button>
+        <div class="key key--empty"></div>
+        <button class="key" data-val="0">0</button>
+        <button class="key key--del" id="key-del">⌫</button>
+      </div>
+    </div>
+    <img class="cat-wrap" src="images/Imoji.webp" alt="gấu dâu">
+  </div>
+
+  <!-- S2: Matrix rain -->
+  <div class="screen" id="s2">
+    <canvas id="c2"></canvas>
+    <p class="matrix-phrase" id="matrix-phrase"></p>
+  </div>
+
+  <!-- S3: passthrough -->
+  <div class="screen" id="s3"></div>
+
+  <!-- S4: Mèo bắn tim ghép chữ + nút hỏi -->
+  <div class="screen" id="s4">
+    <canvas id="c4"></canvas>
+    <div class="s4-btns-wrap">
+      <div class="btn-area" id="btn-area-4">
+        <p class="dodge-msg" id="dodge-msg-4"></p>
+        <button class="btn-yes" id="btn-yes-4">Đồng ý 💕</button>
+        <button class="btn-no"  id="btn-no-4">Từ chối</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: Câu hỏi -->
+  <div class="screen" id="s5">
+    <canvas id="c5"></canvas>
+    <div class="q-wrap">
+      <p class="q-text" id="q-text"><span class="q-cursor" id="q-cur"></span></p>
+      <div class="btn-area" id="btn-area">
+        <p class="dodge-msg" id="dodge-msg"></p>
+        <button class="btn-yes" id="btn-yes">Đồng ý 💕</button>
+        <button class="btn-no"  id="btn-no">Từ chối</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- S6: Sao & lời nhắn -->
+  <div class="screen" id="s6">
+    <canvas id="c6"></canvas>
+    <div class="msg-wrap">
+      <p class="msg-line" id="msg-line"></p>
+      <button class="cont-btn" id="cont-btn">Tiếp tục ✨</button>
+    </div>
+  </div>
+
+  <!-- S7: Trái tim cuối -->
+  <div class="screen" id="s7">
+    <canvas id="c7"></canvas>
+    <div class="final-txt">
+      <p class="final-main" id="final-main"></p>
+      <p class="final-days" id="final-days"></p>
+      <button class="btn-write-note" id="btn-write-note">Viết điều em muốn nói 💌</button>
+    </div>
+  </div>
+
+  <!-- S8: Viết lời nhắn -->
+  <div class="screen" id="s8">
+    <canvas id="c8"></canvas>
+    <div class="note-wrap">
+      <button class="btn-back-s8" id="btn-back-s8">← Quay lại</button>
+      <p class="note-title">✉️ Viết lời nhắn cho anh</p>
+      <div class="note-paper">
+        <div class="note-paper-header">
+          <span>🌸</span>
+          <span>Lời nhắn của em</span>
+        </div>
+        <textarea id="note-input" placeholder="Em muốn nói rằng..." maxlength="500" rows="8"></textarea>
+        <div class="note-footer">
+          <span class="note-counter"><span id="note-count">0</span>/500</span>
+          <button class="note-preview-btn" id="note-preview-btn">Xem trước ✉️</button>
         </div>
       </div>
-    </header>
-
-    <section class="garden" aria-label="Khu vườn hoa hồng lung linh">
-      <div class="garden__moonlight" aria-hidden="true"></div>
-      <div class="garden__portrait" id="garden-portrait" role="img" aria-label="Ảnh của Masha Diêngg được ghép thành hình trái tim"></div>
-      <div class="fairy-lights" id="fairy-lights" aria-hidden="true"></div>
-      <div class="garden__plants" id="garden-plants" aria-hidden="true"></div>
-      <div class="garden__flowers" id="garden-flowers" aria-hidden="true"></div>
-      <div class="garden__ground" aria-hidden="true"></div>
-      <div class="garden__reflection" aria-hidden="true"></div>
-    </section>
-
-    <button class="wish-button" id="wish-button" type="button">
-      Gửi một điều ước <span aria-hidden="true">✦</span>
-    </button>
-    <button class="music-button is-muted" id="music-button" type="button" aria-label="Bật nhạc" title="Phát hoặc tạm dừng nhạc">
-      <span class="music-button__note" aria-hidden="true">♫</span>
-      <span class="music-button__label">Nhạc</span>
-    </button>
-    <!-- Audio attribution (not displayed): "Heartwarming" by Kevin MacLeod, incompetech.com, CC BY 3.0. Source: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100207. Converted from MP3 to WAV for local playback. -->
-    <audio id="garden-music" src="assets/heartwarming.mp3" type="audio/mpeg" loop preload="auto" aria-label="Heartwarming, bản piano của Kevin MacLeod"></audio>
-    <span class="visually-hidden" id="music-status" role="status" aria-live="polite"></span>
-    <p class="wish-message" id="wish-message" role="status" aria-live="polite"></p>
-    <div class="touch-effects" id="touch-effects" aria-hidden="true"></div>
-    <div class="orientation-overlay" role="status" aria-live="polite">
-      <span class="orientation-overlay__icon" aria-hidden="true">↻</span>
-      <p class="orientation-overlay__title">Một chút nữa thôi…</p>
-      <p class="orientation-overlay__message">Khu vườn này đẹp nhất khi xem theo chiều dọc.<br>Hãy xoay điện thoại đứng lại nhé!</p>
-      <span class="orientation-overlay__phone" aria-hidden="true">▯</span>
     </div>
-  </main>
+  </div>
+
+  <!-- S9: Lá thư xem trước + gửi -->
+  <div class="screen" id="s9">
+    <canvas id="c9"></canvas>
+    <div class="letter-outer">
+      <p class="letter-title">💌 Lá thư của em</p>
+      <div class="letter-card">
+        <div class="letter-to-line">
+          <span>Gửi: Anh yêu 💕</span>
+          <span id="letter-date"></span>
+        </div>
+        <p class="letter-body-text" id="letter-body-text"></p>
+        <div class="letter-sign">
+          Người yêu của anh,
+          <strong>Em 🌸</strong>
+        </div>
+      </div>
+      <div class="letter-actions">
+        <button class="btn-back-note" id="btn-back-note">← Sửa lại</button>
+        <button class="btn-send-letter" id="btn-send-letter">Gửi đi 💌</button>
+      </div>
+      <p class="send-status" id="send-status"></p>
+    </div>
+  </div>
+
+</div><!-- #app -->
+
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Thông tin bí mật (gitignored) - xem config.secret.example.js -->
+<script src="config.secret.js" onerror="console.warn('config.secret.js not found')"></script>
+<script src="main.js"></script>
 </body>
 </html>
